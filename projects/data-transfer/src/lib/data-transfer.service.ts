@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class DataTransferService {
   }
 
   // This is to get data at MFE side that is set at HOST side
-  getHostToMfeData() {
+  getHostToMfeData(): Observable<object> {
     return this.hostData;
   }
 
@@ -31,7 +31,7 @@ export class DataTransferService {
   }
 
   // This is to get data at HOST side that is set at MFE side
-  getMfeToHostData() {
+  getMfeToHostData(): Observable<object> {
     return this.mfeData;
   }
 }
